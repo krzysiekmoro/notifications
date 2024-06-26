@@ -4,10 +4,10 @@ import {NotificationContext} from '../context/NotificationContext';
 
 const Navbar: React.FC = () => {
   const {notifications} = useContext(NotificationContext);
-  const unreadCount = 2;
+  const unreadCount = notifications.filter(n => !n.read).length;
 
   return (
-    <nav className='bg-gray-800 p-4 flex justify-between items-center'>
+    <nav className='bg-gray-800 p-4 flex justify-between items-center w-screen'>
       <h1 className='text-white text-xl'>My App</h1>
       <div className='relative'>
         <BellIcon className='h-8 w-8 text-white cursor-pointer' />
