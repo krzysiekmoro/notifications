@@ -1,3 +1,12 @@
 import {createContext} from 'react';
+import { INotification } from '../types/Notification';
 
-export const NotificationContext = createContext({notifications: []});
+interface INotificationContextType {
+  notifications: INotification[];
+  markAsRead: (id: number) => void;
+}
+
+export const NotificationContext = createContext<INotificationContextType>({
+  notifications: [],
+  markAsRead: () => {},
+});
