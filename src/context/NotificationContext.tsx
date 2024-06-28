@@ -1,5 +1,6 @@
 import React, {createContext, useState, useEffect} from 'react';
 import {INotification} from '../types/Notification';
+import notificationsData from '../data/NotificationsData';
 
 interface INotificationContextType {
   notifications: INotification[];
@@ -16,7 +17,8 @@ export const NotificationContext = createContext<INotificationContextType>({
 const NotificationProvider: React.FC<{children: React.ReactNode}> = ({
   children,
 }) => {
-  const [notifications, setNotifications] = useState<INotification[]>([]);
+  const [notifications, setNotifications] =
+    useState<INotification[]>(notificationsData);
 
   useEffect(() => {
     const savedNotifications = localStorage.getItem('notifications');

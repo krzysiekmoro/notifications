@@ -15,7 +15,7 @@ const Notification: React.FC<INotificationProps> = ({notification}) => {
         notification.read ? 'bg-gray-200' : 'bg-white'
       } border rounded flex justify-between items-center`}
     >
-      <p>{notification.message}</p>
+      <p className='text-black'>{notification.message}</p>
       {!notification.read && (
         <button
           onClick={() => markAsRead(notification.id)}
